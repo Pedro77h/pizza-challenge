@@ -1,7 +1,8 @@
 import { Pizza, PizzaProps } from '@domain/entities/pizza';
 describe('pizza', () => {
-  it('should be able to assign values on pizza', () => {
+  it('should be able to return a assign id', () => {
     const pizzaProps: PizzaProps = {
+      id: 'foo',
       name: 'calabresa',
       price: 7,
       ingredients: ['tomate', 'calda'],
@@ -9,10 +10,6 @@ describe('pizza', () => {
 
     const pizza = new Pizza(pizzaProps);
 
-    console.log(pizza);
-
-    expect(pizza).toEqual(pizzaProps)
-    
-
+    expect(pizza.id).toEqual('foo');
   });
 });

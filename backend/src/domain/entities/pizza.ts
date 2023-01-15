@@ -1,22 +1,24 @@
 import { randomUUID } from 'node:crypto';
 
 export type PizzaProps = {
+  id?: string
   name: string;
   price: number;
   ingredients: string[];
 };
 
 export class Pizza {
-  private _id: string;
   private props: PizzaProps;
 
-  constructor(props: PizzaProps, id?: string) {
-    this._id = id ?? randomUUID();
-    this.props = props;
+  constructor(props: PizzaProps) {
+    this.props = {
+      ...props,
+      id: props?.id ?? randomUUID()
+    }
   }
 
   public get id(): string {
-    return this._id;
+    return this.props.id;
   }
 
   public get name(): string {
