@@ -18,6 +18,7 @@ export class AddPizzaUseCase {
       name,
       price,
       ingredients,
+      img: 'https://www.sabornamesa.com.br/media/k2/items/cache/513d7a0ab11e38f7bd117d760146fed3_XL.jpg'
     });
 
     await this.pizzaRepository.create(pizza);

@@ -8,6 +8,7 @@ export function makePizza(override: Override = {}) {
     name: 'calabresa',
     price: 7,
     ingredients: ['tomate', 'calabresa'],
+    img: 'calabresa',
     ...override
   })
 }

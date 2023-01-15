@@ -6,6 +6,7 @@ describe('pizza', () => {
       name: 'calabresa',
       price: 7,
       ingredients: ['tomate', 'calda'],
+      img: 'https://www.sabornamesa.com.br/media/k2/items/cache/513d7a0ab11e38f7bd117d760146fed3_XL.jpg'
     };
 
     const pizza = new Pizza(pizzaProps);
