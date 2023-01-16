@@ -1,12 +1,11 @@
 import { randomUUID } from 'node:crypto';
-import { MulterField } from '@nestjs/platform-express/multer/interfaces/multer-options.interface';
 
 export type PizzaProps = {
-  id?: string
+  id?: string;
   name: string;
   price: number;
   ingredients: string[];
-  img: string
+  img: string;
 };
 
 export class Pizza {
@@ -15,8 +14,8 @@ export class Pizza {
   constructor(props: PizzaProps) {
     this.props = {
       ...props,
-      id: props?.id ?? randomUUID()
-    }
+      id: props?.id ?? randomUUID(),
+    };
   }
 
   public get id(): string {
@@ -36,6 +35,6 @@ export class Pizza {
   }
 
   public get img(): string {
-    return this.props.img
+    return this.props.img;
   }
 }
