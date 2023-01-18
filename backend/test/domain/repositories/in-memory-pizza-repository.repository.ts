@@ -1,7 +1,7 @@
 import { UpdatePizzaRequest } from '@app/UseCases/pizza/UpdatePizza.usecase';
 import { PizzaNotFound } from './../../../src/application/errors/pizzaNotFound.error';
 import { Pizza } from '@domain/entities/pizza';
-import { PizzaRepository } from '@domain/entities/repositories/pizza.repository';
+import { PizzaRepository } from '@domain/repositories/pizza.repository';
 
 export class InMemoryPizzaRepository implements PizzaRepository {
   public pizzas: Pizza[] = [];

@@ -1,6 +1,6 @@
 import { PizzaNotFound } from '@app/errors/pizzaNotFound.error';
 import { Pizza } from '@domain/entities/pizza';
-import { PizzaRepository } from '@domain/entities/repositories/pizza.repository';
+import { PizzaRepository } from '@domain/repositories/pizza.repository';
 export class RemovePizzas {
   constructor(private pizzaRepository: PizzaRepository) {}
 

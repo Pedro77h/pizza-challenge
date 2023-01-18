@@ -1,5 +1,5 @@
 import { Pizza } from '@domain/entities/pizza';
-import { PizzaRepository } from '@domain/entities/repositories/pizza.repository';
+import { PizzaRepository } from '@domain/repositories/pizza.repository';
 
 interface GetPizzasResponse {
   pizzas: Pizza[];
