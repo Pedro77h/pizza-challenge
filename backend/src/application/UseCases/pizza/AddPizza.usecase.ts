@@ -1,3 +1,4 @@
+import { Injectable } from '@nestjs/common';
 import { Pizza, PizzaProps } from '@domain/entities/pizza';
 import { PizzaRepository } from '@domain/repositories/pizza.repository';
 
@@ -7,7 +8,7 @@ interface AddPizzaRequest extends PizzaProps {}
 interface AddPizzaResponse {
   pizza: Pizza;
 }
-
+@Injectable()
 export class AddPizzaUseCase {
   constructor(private pizzaRepository: PizzaRepository) {}
 a

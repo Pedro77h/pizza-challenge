@@ -1,10 +1,11 @@
+import { PizzaController } from './pizza/pizza.controller';
+import { DatabaseModule } from './infra/db/database.module';
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { PizzaModule } from './pizza/pizza.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [DatabaseModule, PizzaModule],
+  controllers: [PizzaController],
+  providers: [],
 })
 export class AppModule {}
