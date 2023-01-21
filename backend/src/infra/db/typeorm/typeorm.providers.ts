@@ -2,6 +2,7 @@ import { OrderSchema } from './schemas/order.schema';
 import { PizzaSchema } from './schemas/pizza.schema';
 
 import { DataSource } from 'typeorm';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 export const databaseProviders = [
   {
@@ -14,11 +15,11 @@ export const databaseProviders = [
         username: 'postgres',
         password: '123',
         database: 'pizza',
-        entities: [
-            PizzaSchema , OrderSchema
-        ],
+        entities: [PizzaSchema, OrderSchema],
         synchronize: true,
+        logging: true,
       });
+      
 
       return dataSource.initialize();
     },

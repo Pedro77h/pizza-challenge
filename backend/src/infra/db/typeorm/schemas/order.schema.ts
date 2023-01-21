@@ -12,7 +12,7 @@ export class OrderSchema {
   @Column()
   costumerName: string;
 
-  @Column()
+  @Column({default: 0})
   isDelivered: number
 
   @Column()

@@ -1,5 +1,5 @@
 import { Pizza } from '@domain/entities/pizza';
-export class PizzaVielModel {
+export class PizzaViewModel {
   static toHTTP(pizza: Pizza) {
     return {
       id: pizza.id,
