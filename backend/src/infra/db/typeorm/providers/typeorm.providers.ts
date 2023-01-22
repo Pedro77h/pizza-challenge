@@ -1,8 +1,8 @@
-import { OrderSchema } from './schemas/order.schema';
-import { PizzaSchema } from './schemas/pizza.schema';
 
 import { DataSource } from 'typeorm';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { OrderSchema } from '../schemas/order.schema';
+import { PizzaSchema } from '../schemas/pizza.schema';
+
 
 export const databaseProviders = [
   {

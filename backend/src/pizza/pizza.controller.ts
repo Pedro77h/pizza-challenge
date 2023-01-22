@@ -15,7 +15,7 @@ export class PizzaController {
 
     if (!name || !price || !ingredients) throw new Error();
 
-    const { pizza } = await this.pizzaService.addPizza(body);
+      const { pizza } = await this.pizzaService.addPizza(body);
 
     return {
       pizza: PizzaViewModel.toHTTP(pizza),

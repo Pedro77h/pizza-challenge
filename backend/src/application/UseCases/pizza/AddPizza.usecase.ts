@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { Pizza, PizzaProps } from '@domain/entities/pizza';
 import { PizzaRepository } from '@domain/repositories/pizza.repository';
 
@@ -12,7 +12,7 @@ export interface AddPizzaResponse {
 export class AddPizzaUseCase {
   constructor(private pizzaRepository: PizzaRepository) {}
   public async execute(req: AddPizzaRequest) {
-    const { name, price, ingredients ,img } = req;
+    const { name, price, ingredients, img } = req;
 
     const pizza = new Pizza({
       name,
