@@ -1,21 +1,17 @@
-import { PizzaSchema } from './typeorm/schemas/pizza.schema';
-import { PizzaTypeOrmRepository } from '@infra/db/typeorm/repositories/PizzaTypeOrmRepository.repository';
+import { PrismaPizzaRepository } from './prisma/repositories/prisma-pizza.repository';
 import { PizzaRepository } from '@domain/repositories/pizza.repository';
+import { PrismaService } from './prisma/prisma.service';
+
 import { Module } from '@nestjs/common';
-import { DataSource, Repository } from 'typeorm';
-import { databaseProviders } from './typeorm/providers/typeorm.providers';
-import {
-  getDataSourceName,
-  getDataSourceToken,
-  TypeOrmModule,
-} from '@nestjs/typeorm';
 
 @Module({
-  imports: [],
   providers: [
-    ...databaseProviders,
-  
+    PrismaService,
+    {
+      provide: PizzaRepository,
+      useClass: PrismaPizzaRepository,
+    },
   ],
-  exports: [...databaseProviders],
+  exports: [PizzaRepository],
 })
 export class DatabaseModule {}

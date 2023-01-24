@@ -6,6 +6,7 @@ export type PizzaProps = {
   price: number;
   ingredients: string[];
   img: string;
+  createdAt?: Date;
 };
 
 export class Pizza {
@@ -15,6 +16,7 @@ export class Pizza {
     this.props = {
       ...props,
       id: props?.id ?? randomUUID(),
+      createdAt: props?.createdAt ?? new Date(),
     };
   }
 
@@ -36,5 +38,9 @@ export class Pizza {
 
   public get img(): string {
     return this.props.img;
+  }
+
+  public get createdAt() {
+    return this.props.createdAt;
   }
 }

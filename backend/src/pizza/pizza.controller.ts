@@ -1,9 +1,9 @@
-import { PizzaSchema } from './../infra/db/typeorm/schemas/pizza.schema';
+
 import { PizzaViewModel } from './viewModel/pizza.viewmodel';
 import { AddPizzaDTO } from './dto/AddPizza.dto';
 import { PizzaService } from './pizza.service';
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { Repository } from 'typeorm';
+
 
 @Controller('pizza')
 export class PizzaController {
@@ -20,5 +20,10 @@ export class PizzaController {
     return {
       pizza: PizzaViewModel.toHTTP(pizza),
     };
+  }
+
+  @Get()
+  async getAllPizzas() {
+    
   }
 }
