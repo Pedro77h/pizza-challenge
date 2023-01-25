@@ -1,3 +1,4 @@
+import { PizzaNotFound } from '@app/errors/pizzaNotFound.error';
 import { Injectable } from '@nestjs/common';
 import { PrismaPizzaMapper } from './../mappers/prisma-pizza..mapper';
 import { PrismaService } from '../prisma.service';
@@ -25,13 +26,17 @@ export class PrismaPizzaRepository implements PizzaRepository {
     return domainPizzas;
   }
   async findOneOrFail(pizzaId: string): Promise<Pizza> {
-    const pizza = await this.prismaService.pizza.findUnique({
-      where: {
-        id: pizzaId,
-      },
-    });
+    try {
+      const pizza = await this.prismaService.pizza.findUnique({
+        where: {
+          id: pizzaId,
+        },
+      });
 
-    return PrismaPizzaMapper.toDomain(pizza);
+      return PrismaPizzaMapper.toDomain(pizza);
+    } catch (err) {
+      throw new PizzaNotFound();
+    }
   }
   async remove(pizzaId: string): Promise<void> {
     await this.prismaService.pizza.delete({

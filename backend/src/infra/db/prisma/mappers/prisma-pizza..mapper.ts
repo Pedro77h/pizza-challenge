@@ -1,7 +1,7 @@
 import { Pizza } from '@domain/entities/pizza';
 import { pizza as RawPizza } from '@prisma/client';
 export class PrismaPizzaMapper {
-  static toPrisma(pizza: Pizza) {
+  static toPrisma(pizza: Pizza | Partial<Pizza>) {
     return {
       id: pizza.id,
       name: pizza.name,

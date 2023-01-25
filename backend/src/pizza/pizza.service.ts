@@ -39,6 +39,10 @@ export class PizzaService {
   }
 
   async updatePizza(pizzaId: string, data: Partial<Pizza>) {
-    
+    const { pizza } = await this.updatePizzaUseCase.execute(pizzaId, data);
+
+    return {
+      pizza,
+    };
   }
 }
