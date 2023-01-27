@@ -1,7 +1,8 @@
 import { randomUUID } from 'node:crypto';
 import { Pizza } from './pizza';
+
 export type OrderProps = {
-  id?: string
+  id?: string;
   items: Pizza[];
   costumerName: string;
   isDelivered?: number;
@@ -16,12 +17,12 @@ export class Order {
       ...props,
       isDelivered: props.isDelivered ?? 0,
       orderedAt: props.orderedAt ?? new Date(),
-      id: props.id ?? randomUUID()
+      id: props.id ?? randomUUID(),
     };
   }
 
   public get id(): string {
-    return this.props.id
+    return this.props.id;
   }
 
   public get items(): Pizza[] {

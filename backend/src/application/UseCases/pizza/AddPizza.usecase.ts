@@ -2,8 +2,8 @@ import { Inject, Injectable } from '@nestjs/common';
 import { Pizza, PizzaProps } from '@domain/entities/pizza';
 import { PizzaRepository } from '@domain/repositories/pizza.repository';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface AddPizzaRequest extends PizzaProps {}
+
+interface AddPizzaRequest 
 
 export interface AddPizzaResponse {
   pizza: Pizza;
