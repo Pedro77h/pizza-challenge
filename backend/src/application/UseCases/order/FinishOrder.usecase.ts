@@ -10,9 +10,5 @@ export class FinishOrder {
 
     order.deliver();
     await this.orderRepository.save(order);
-
-    return {
-      order,
-    };
   }
 }

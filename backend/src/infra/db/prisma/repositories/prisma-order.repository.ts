@@ -1,21 +1,24 @@
+import { Inject, Injectable } from '@nestjs/common';
 import { PrismaPizzaMapper } from './../mappers/prisma-pizza..mapper';
 import { PizzaNotFound } from '@app/errors/pizzaNotFound.error';
 import { PrismaService } from './../prisma.service';
 import { PrismaOrderMapper } from './../mappers/prisma-order.mapper';
 import { Order } from '@domain/entities/order';
 import { OrderRepository } from '@domain/repositories/order.repository';
+
+@Injectable()
 export class PrismaOrderRepository implements OrderRepository {
   constructor(private readonly prismaService: PrismaService) {}
 
   async create(order: Order): Promise<void | Order> {
     const raw = PrismaOrderMapper.toPrisma(order);
 
-    await this.prismaService.order.create({
+    await this.prismaService.orders.create({
       data: raw,
     });
   }
   async findAll(): Promise<Order[]> {
-    const orders = await this.prismaService.order.findMany({
+    const orders = await this.prismaService.orders.findMany({
       include: {
         items: true,
       },
@@ -29,7 +32,7 @@ export class PrismaOrderRepository implements OrderRepository {
   }
   async findOneOrFail(orderId: string): Promise<Order> {
     try {
-      const order = await this.prismaService.order.findUnique({
+      const order = await this.prismaService.orders.findUnique({
         where: {
           id: orderId,
         },
@@ -44,7 +47,7 @@ export class PrismaOrderRepository implements OrderRepository {
     }
   }
   async save(order: Order): Promise<void> {
-    await this.prismaService.order.update({
+    await this.prismaService.orders.update({
       where: {
         id: order.id,
       },

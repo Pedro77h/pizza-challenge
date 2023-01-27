@@ -1,5 +1,5 @@
 import { Order } from '@domain/entities/order';
-import { order as RawOrder } from '@prisma/client';
+import { orders as RawOrder } from '@prisma/client';
 
 export class PrismaOrderMapper {
   static toPrisma(order: Order) {

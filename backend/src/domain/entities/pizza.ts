@@ -5,7 +5,7 @@ export type PizzaProps = {
   name: string;
   price: number;
   ingredients: string[];
-  img: string;
+  img?: string;
   createdAt?: Date;
 };
 

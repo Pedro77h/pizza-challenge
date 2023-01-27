@@ -1,9 +1,10 @@
+
 import { Inject, Injectable } from '@nestjs/common';
 import { Pizza, PizzaProps } from '@domain/entities/pizza';
 import { PizzaRepository } from '@domain/repositories/pizza.repository';
 
 
-interface AddPizzaRequest 
+type AddPizzaRequest = PizzaProps
 
 export interface AddPizzaResponse {
   pizza: Pizza;

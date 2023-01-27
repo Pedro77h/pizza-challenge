@@ -22,4 +22,24 @@ export class OrderService {
       order,
     };
   }
+
+  async findAll() {
+    const { orders } = await this.getOrder.execute();
+
+    return {
+      orders,
+    };
+  }
+
+  async find(orderId: string) {
+    const { order } = await this.findOrder.execute(orderId);
+
+    return {
+      order,
+    };
+  }
+
+  async finish(orderId: string) {
+    await this.finishOrder.execute(orderId);
+  }
 }

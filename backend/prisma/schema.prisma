@@ -17,13 +17,13 @@ model pizza {
   ingredients String[]
   img         String?
   createdAt   DateTime
-  order       order?   @relation(fields: [orderId], references: [id])
+  order       orders[]
   orderId     String?
 
   @@index([id])
 }
 
-model order {
+model orders {
   id           String   @id
   items        pizza[]
   costumerName String

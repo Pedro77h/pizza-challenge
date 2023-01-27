@@ -5,7 +5,7 @@ import { OrderProps } from '@domain/entities/order';
 
 type OrderRequest = OrderProps;
 
-type OrderResponse = { order: OrderProps };
+type OrderResponse = { order: Order };
 
 @Injectable()
 export class AddOrder {

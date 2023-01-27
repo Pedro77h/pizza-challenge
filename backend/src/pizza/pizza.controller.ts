@@ -39,12 +39,12 @@ export class PizzaController {
     };
   }
 
-  @Delete('/delete')
+  @Delete(':id/delete')
   async delete(@Param('id') id: string) {
     await this.pizzaService.removePizzas(id);
   }
 
-  @Patch('/update')
+  @Patch(':id/update')
   async update(@Body() data: UpdatePizzaDTO, @Param('id') id: string) {
     const { pizza } = await this.pizzaService.updatePizza(id, data);
 
