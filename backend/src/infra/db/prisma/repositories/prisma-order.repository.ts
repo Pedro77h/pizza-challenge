@@ -22,6 +22,9 @@ export class PrismaOrderRepository implements OrderRepository {
       include: {
         items: true,
       },
+      orderBy: {
+        orderedAt: 'desc',
+      },
     });
 
     const domainOrders = orders.map((order) =>
@@ -30,15 +33,18 @@ export class PrismaOrderRepository implements OrderRepository {
 
     return domainOrders;
   }
-  async findOneOrFail(orderId: string): Promise<Order> {
+  async findOneOrFail(costumerName: string): Promise<Order> {
     try {
-      const order = await this.prismaService.orders.findUnique({
+      const order = await this.prismaService.orders.findFirst({
         where: {
-          id: orderId,
+          costumerName: costumerName,
         },
         include: {
           items: true,
         },
+        orderBy: {
+          orderedAt: 'desc'
+        }
       });
 
       return PrismaOrderMapper.toDomain(order, order.items);

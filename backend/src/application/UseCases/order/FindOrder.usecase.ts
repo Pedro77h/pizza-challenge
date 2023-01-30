@@ -5,8 +5,8 @@ import { Injectable } from '@nestjs/common';
 export class FindOrder {
   constructor(private orderRepository: OrderRepository) {}
 
-  async execute(orderId: string) {
-    const order = await this.orderRepository.findOneOrFail(orderId);
+  async execute(costumerName: string) {
+    const order = await this.orderRepository.findOneOrFail(costumerName);
 
     if (!order) throw new OrderNotFound();
 

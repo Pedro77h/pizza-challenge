@@ -8,7 +8,7 @@ describe('add pizza use case', () => {
     const pizzaRepository = new InMemoryPizzaRepository();
     //Act
     const addPizza = new AddPizzaUseCase(pizzaRepository);
-    const { pizza } = await addPizza.execute(pizzaProps);
+    const pizza = await addPizza.execute(pizzaProps);
     //Assert
 
     expect(pizzaRepository.pizzas).toHaveLength(1);

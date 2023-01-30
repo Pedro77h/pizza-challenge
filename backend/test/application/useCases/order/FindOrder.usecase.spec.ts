@@ -21,7 +21,7 @@ describe('Find order', () => {
       }),
     );
 
-    const {order} = await findOrder.execute('2');
+    const {order} = await findOrder.execute('pedro');
 
     //Assert
     expect(order).toEqual(expect.objectContaining({costumerName:'pedro'}));

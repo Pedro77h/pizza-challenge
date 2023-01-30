@@ -1,4 +1,4 @@
-import { Order, OrderProps } from './../entities/order';
+import { Order } from './../entities/order';
 export abstract class OrderRepository {
   abstract create(order: Order): Promise<Order | void>;
   abstract findAll(): Promise<Order[]>;
