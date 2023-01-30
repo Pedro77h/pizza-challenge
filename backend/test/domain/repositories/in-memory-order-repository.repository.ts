@@ -12,9 +12,9 @@ export class InMemoryOrderRepository extends OrderRepository {
   async findAll(): Promise<Order[]> {
     return this.orders;
   }
-  async findOneOrFail(costumerName: string): Promise<Order> {
+  async findOneOrFail(orderId: string): Promise<Order> {
     try {
-      const order = this.orders.find((order) => order.costumerName === costumerName);
+      const order = this.orders.find((order) => order.id=== orderId);
 
       return order;
     } catch (err) {

@@ -33,18 +33,15 @@ export class PrismaOrderRepository implements OrderRepository {
 
     return domainOrders;
   }
-  async findOneOrFail(costumerName: string): Promise<Order> {
+  async findOneOrFail(orderId: string): Promise<Order> {
     try {
-      const order = await this.prismaService.orders.findFirst({
+      const order = await this.prismaService.orders.findUnique({
         where: {
-          costumerName: costumerName,
+          id: orderId,
         },
         include: {
           items: true,
         },
-        orderBy: {
-          orderedAt: 'desc'
-        }
       });
 
       return PrismaOrderMapper.toDomain(order, order.items);

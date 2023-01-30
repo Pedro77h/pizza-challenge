@@ -26,9 +26,9 @@ export class OrderController {
     };
   }
 
-  @Get(':costumerName')
-  async find(@Param('costumerName') costumerName: string) {
-    const { order } = await this.orderService.find(costumerName);
+  @Get(':id')
+  async find(@Param('id') id: string) {
+    const { order } = await this.orderService.find(id);
 
     return {
       order: OrderViewModel.toHTTP(order),
