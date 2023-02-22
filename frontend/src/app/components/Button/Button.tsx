@@ -1,5 +1,8 @@
+import { ThemeType } from "@/app/lib/theme";
 import styled from "styled-components";
 
-export const Button = styled.button`
-  
+type ButtonProps = ThemeType
+
+export const Button = styled.div<ButtonProps>`
+  background-color: ${({theme}) => theme.colors.secondary} ;
 `
