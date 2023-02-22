@@ -1,10 +1,19 @@
 import styled from "styled-components";
-import { flex, FlexProps } from "styled-system";
+import {
+  flexbox,
+  FlexboxProps,
+  space,
+  SpaceProps,
+  layout,
+  LayoutProps,
+} from "styled-system";
 
-type RowProps = FlexProps;
+type RowProps = SpaceProps & FlexboxProps & LayoutProps;
 
 export const Row = styled.div<RowProps>`
   display: flex;
   flex-direction: row;
-   ${flex} 
+  ${space}
+  ${flexbox}
+  ${layout}
 `;

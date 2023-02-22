@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { ThemeProvider } from "styled-components";
+import { ThemeProps, ThemeProvider, ThemeProviderProps } from "styled-components";
 
 interface themeProps {
   children: ReactNode;
