@@ -19,3 +19,5 @@ background: linear-gradient(90deg, rgba(30,30,30,1) 55%, rgba(105,0,0,1) 55%);
   }
 
 `;
+
+

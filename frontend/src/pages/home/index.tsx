@@ -12,7 +12,11 @@ const Home = () => {
     });
   });
 
-  return <NavBar />;
+  return (
+    <>
+      <NavBar />
+    </>
+  );
 };
 
 export default Home;

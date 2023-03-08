@@ -14,13 +14,13 @@ export const NavBar = () => {
       padding="1.5rem 2.5rem"
       width="100%"
       justifyContent="space-between"
-      alignItems='center'
+      alignItems="center"
     >
       <Image src={LogoPizza} alt={""} width={150} />
-      <Row justifyContent="space-between" width="28%" >
+      <Row justifyContent="space-between" width="28%">
         <Link href="/home">
           <Text
-            color={state.currentPage === 0 ? "primary" : "#111"}
+            color={state.currentPage === 0 ? "primary" : "#fff"}
             fontSize="1.2rem"
           >
             Inicio
@@ -28,7 +28,7 @@ export const NavBar = () => {
         </Link>
         <Link href="/home">
           <Text
-            color={state.currentPage === 1 ? "primary" : "#111"}
+            color={state.currentPage === 1 ? "primary" : "#fff"}
             fontSize="1.2rem"
           >
             Pedidos
@@ -36,7 +36,7 @@ export const NavBar = () => {
         </Link>
         <Link href="/home">
           <Text
-            color={state.currentPage === 2 ? "primary" : "#111"}
+            color={state.currentPage === 2 ? "primary" : "#fff"}
             fontSize="1.2rem"
           >
             Pizzas
